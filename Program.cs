@@ -40,7 +40,7 @@ namespace ConsoleApp1
         nếu a<b thì trả 1
         nếu a>b thì trả về 2
         ngược lại trả về 0
-
+        // hải
         */
         int Compare(int a,int b)
         {
