@@ -111,6 +111,30 @@ namespace Tetris
         return cell;
     }
         */
+        private void Draw_()// vẽ khối gạch 
+        {
+            int y_ = y;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.SetCursorPosition(x + j,y_);
+                    Console.Write("{0}", cell[i, j] == 0 ? ' ' : '*');
+                }
+                y_++;
+            }
+        }
+        public void Draw()
+        {
+            Console.ForegroundColor = fg;
+            Draw_();
+        }
+        public void Clear()
+        {
+            Console.BackgroundColor = bg;
+            Draw_();
+        }
+        /*
         public void Draw() // vẽ khối gạch  
         {
             int y_ = y;
@@ -138,7 +162,7 @@ namespace Tetris
                 }
                 y_++;
             }
-        }
+        }*/
         public void Move()
         {
 
@@ -155,10 +179,10 @@ namespace Tetris
                 banphim = Console.ReadKey(true);
                 switch (banphim.Key)
                 {
-                    case ConsoleKey.LeftArrow: cell.X--; break; // nút sang trai
-                    case ConsoleKey.RightArrow: cell.X++; break; // nút sang phải
-                    case ConsoleKey.UpArrow: cell.Y--; break;// nút lên 
-                    case ConsoleKey.DownArrow: cell.Y = cell.Y += 3; break;// nút xuống 
+                    case ConsoleKey.LeftArrow: cell.X--; break; // nút sang trái.
+                    case ConsoleKey.RightArrow: cell.X++; break; // nút sang phải.
+                    case ConsoleKey.UpArrow: cell.Y--; break;// nút lên. 
+                    case ConsoleKey.DownArrow: cell.Y = cell.Y += 3; break;// nút xuống. 
                 }
             }
 
@@ -172,7 +196,7 @@ namespace Tetris
             }
         }
 
-        static Cell cell = new(ConsoleColor.Green, ConsoleColor.Red);
+        static Cell cell = new(ConsoleColor.Black, ConsoleColor.Red);
         static void Main(string[] args)
 
         {
